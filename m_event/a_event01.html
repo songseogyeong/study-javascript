@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>클릭 이벤트</title>
+    </head>
+    <body>
+        <h3>CSS 스타일 동적 변경</h3>
+        <hr />
+        <p>변경될 요소</p>
+        <input type="button" value="스타일 변경" />
+    </body>
+    <script>
+        // input 변수 선언 후 값을 할당
+        // button 타입을 가지는 input 태그를 querySelector로 조회하고 input 변수에 할당
+        const input = document.querySelector("input[type='button']");
+        // p 태그를querySelector로 가져와 target 변수를 선언한 뒤 값 할당
+        const target = document.querySelector("p");
+        // addEventListener: 이벤트 반응을 들을 수 있는 걸 추가
+        // 클릭 할 때 하고 싶은 걸 작성하면됨
+        // e.target > this로 보면됨
+        // input 태그에 click 이벤트 설정
+        input.addEventListener("click", (e) => {
+            // console.log(e.target);
+            // with문을 사용하여 스타일 적용
+            // target.style이 각각의 프로퍼티에 담긴다.
+            with (target.style) {
+                fontSize = "30px";
+                border = "3px dashed magenta";
+                width = "100px";
+                textAlign = "center";
+            }
+        });
+    </script>
+</html>

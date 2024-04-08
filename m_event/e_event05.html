@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>첨부파일 썸네일</title>
+        <style>
+            div.wrap {
+                position: relative;
+                display: flex;
+                align-items: center;
+                width: 150px;
+                height: 150px;
+                margin: 0 auto;
+            }
+
+            div.image {
+                cursor: pointer;
+                background-image: url("images/plus.png");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 150px;
+                height: 150px;
+            }
+
+            div.cancel {
+                display: none;
+                cursor: pointer;
+                position: absolute;
+                background-image: url("images/cancel.png");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: 0 auto;
+                width: 30px;
+                height: 30px;
+                right: 15px;
+                top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <label for="attach">
+                <div class="image"></div>
+            </label>
+            <div class="cancel"></div>
+        </div>
+        <input type="file" id="attach" style="display: none" />
+    </body>
+    <script>
+        const input = document.getElementById("attach");
+        const thumbnail = document.querySelector("div.image");
+        const cancel = document.querySelector("div.cancel");
+
+        input.addEventListener("change", (e) => {
+            const [file] = e.target.files;
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.addEventListener("load", (e) => { 
+                const path = e.target.result;
+                cancel.style.display = "block";
+
+                if (path.includes("image")) {
+                    thumbnail.style.backgroundImage = `url(${path})`;
+                } else {
+                    thumbnail.style.backgroundImage = `url('images/attach.png')`;
+                }
+            });
+        });
+
+        cancel.addEventListener("click", (e) => {
+            thumbnail.style.backgroundImage = `url('images/plus.png')`;
+            e.target.style.display = "none";
+            input.value = "";
+        });
+    </script>
+</html>

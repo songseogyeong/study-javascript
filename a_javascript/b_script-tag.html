@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>스크립트 태그</title>
+        <!-- 스크립트 태그는 head, body, body 밖... 등 어디든 모두 사용 가능 -->
+    </head>
+    <body>
+        <h2>마우스를 올려보세요😀</h2>
+        <hr />
+        <!-- icon1 이미지의 너비는 200px -->
+        <!-- 마우스를 올리면 over 함수(호출된 icon4) 실행, 마우스를 떼면 out 함수(호출된 icon3) 실행 -->
+        <!-- this = 호출 -->
+        <img
+            src="images/icon1.png"
+            width="200px"
+            onmouseover="over(this)"
+            onmouseout="out(this)"
+        />
+    </body>
+    <script>
+        // over 함수 선언 후 object를 매개변수로 받기
+        // object는 icon4
+        function over(object) {
+            object.src = "images/icon4.png";
+        }
+
+        // out 함수 선언 후 object를 매개변수로 받기
+        // object는 icom3
+        function out(object) {
+            object.src = "images/icon3.png";
+        }
+    </script>
+</html>

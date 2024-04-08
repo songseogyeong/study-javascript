@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>키 이벤트</title>
+    </head>
+    <body>
+        <input type="text" placeholder="이름" autocomplete="off" />
+        <p id="name"></p>
+    </body>
+    <script>
+        // placeholder 타입의 값이 "이름"으로 설정되어 있는 input 태그를querySelector를 통해 조회하고 input 변수에 할당
+        const input = document.querySelector("input[placeholder=이름]");
+        // id(#)가 name인 태그를 querySelector을 통해 조회하고 p 변수에 할당
+        const p = document.querySelector("#name");
+        // input은 keyup이라는 이벤트 발생
+        // keyup은 자판을 눌렀다 뗐을 때 바로 입력이 된다.
+        input.addEventListener("keyup", (e) => {
+            // keyCode를 출력하여 입력한 값이 어떤 코드를 가지는지 확인할 수 있다.
+            console.log(e.keyCode);
+            // p 태그에 innerText를 사용하여 e.target의 값을 넣는다.
+            p.innerText = e.target.value;
+        });
+
+        // keydown 누르자 마자 실행... 한박자씩 느림...  > 눌렀을 때 이벤트가 발생하는게 글자가 작성되는 것 보다 빠름
+        // keyup 눌렀다 뗐을 때 발생.. 바로 쳐짐
+    </script>
+</html>

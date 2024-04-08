@@ -1,0 +1,310 @@
+element.style {
+    height: 100%;
+}
+
+body, html {
+    background-color: rgb(255 255 255);
+}
+
+:root {
+    --swiper-theme-color: #007aff;
+}
+
+html {
+    font-family: SUIT,sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    tab-size: 4;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+}
+
+*, :after, :before {
+    --tw-border-spacing-x: 0;
+    --tw-border-spacing-y: 0;
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-scroll-snap-strictness: proximity;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgba(59,130,246,.5);
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e1e4e6;
+}
+
+* {
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: -.03125em;
+    scrollbar-color: auto;
+    scrollbar-width: auto;
+}
+
+a, button {
+    transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .15s;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+audio, canvas, embed, iframe, img, object, svg, video {
+    display: block;
+    vertical-align: middle;
+}
+
+[type=button], [type=reset], [type=submit], button {
+    background-color: transparent;
+    background-image: none;
+}
+
+button {
+    text-align: left;
+}
+
+[role=button], button {
+    cursor: pointer;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+    margin: 0;
+}
+
+html > body {
+    top: 0 !important;
+}
+
+body {
+    font-size: .9375rem;
+    color: rgb(23 23 23);
+    margin: 0;
+    line-height: inherit;
+}
+
+body, html {
+    background-color: rgb(255 255 255);
+}
+
+.body {
+    position: relative;
+    min-height: 100%;
+    opacity: 1;
+}
+
+.header-certified {
+    display: none;
+    justify-content: center;
+    flex-direction: row;
+    color: rgb(255 255 255);
+    background-color: rgb(141 113 221);
+    align-items: center;
+    height: 4rem;
+}
+
+.certified-font-bold {
+    font-weight: 700;
+}
+
+.certified-font-email {
+    margin-right: calc(0.25rem*var(--tw-space-x-reverse));
+    margin-left: calc(0.25rem*(1 - var(--tw-space-x-reverse)));
+}
+
+.header-certified-underline {
+    margin-right: calc(0.25rem*var(--tw-space-x-reverse));
+    margin-left: calc(0.25rem*(1 - var(--tw-space-x-reverse)));
+    text-decoration-line: underline;
+    font-weight: 700;
+    font-size: .9375rem;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+}
+
+.certified-underline-image {
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.25rem;
+}
+
+.header-underline {
+    position: fixed;
+    height: 0px;
+    padding: 0px;
+    overflow: hidden;
+    clip: rect(0px, 0px, 0px, 0px);
+    white-space: nowrap;
+    border-width: 0px;
+    display: none;
+}
+
+.header-container-center {
+    max-width: 1280px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    padding-top: 2.25rem;
+}
+
+.header-center {
+    height: 3rem;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+
+.center-grow {
+    align-items: center;
+    flex-grow: 1;
+    display: flex;
+}
+
+.center-grow-logo {
+    height: 2.5rem;
+    width: auto;
+}
+
+.center-grow-hidden {
+    padding-left: 6rem;
+    display: block;
+    padding-right: 1.5rem;
+    max-width: 28rem;
+    width: 100%;
+}
+
+.grow-hidden-button {
+    background-color: white !important;
+    box-shadow: 0 0 #0000, 0 0 #0000,;
+    box-shadow: 0 0 #0000, 0 0 #0000,;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    border-width: 1px;
+    border-radius: 9999px;
+    cursor: text;
+    max-width: 20rem;
+    width: 100%;
+}
+
+.grow-hidden-button-flex {
+    align-items: center;
+    display: flex;
+}
+
+.grow-hidden-button-text-icon {
+    color: rgb(135 141 145);
+}
+
+.hidden-button-text-icon-size {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.grow-hidden-button-text-message {
+    margin: 0px 0px 0px 8px;
+    color: rgb(206 211 214);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    min-width: 1.25rem;
+}
+
+.center-space {
+    display: none;
+}
+
+.center-space-host {
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    border-color: rgb(245 242 255);
+    color: rgb(92 63 191);
+    box-shadow: 0 0 #0000, 0 0 #0000,;
+}
+
+.center-space-menu {
+    margin-right: 1rem;
+    margin-left: 1rem*1;
+    color: rgb(92 63 191);
+}
+
+.center-spave-menu-size {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.center-hidden {
+    display: block;
+    height: 100%;
+}
+
+.hidden-items {
+    align-items: center;
+    height: 100%;
+    display: flex;
+}
+
+.hidden-items-siginup {
+    margin: 0px 0px 0px 24px;
+}
+
+.hidden-items-center {
+    border-color: rgb(245 242 255);
+    color: rgb(92 63 191);
+    box-shadow: 0 0 #0000, 0 0 #0000;
+    line-height: 1;
+    font-weight: 400;
+    font-size: .8125rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: rgb(245 242 255);
+    border-style: none;
+    border-width: 1px;
+    border-radius: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px 0px 24px;
+    height: 2.5rem;
+    display: flex;
+}
+
+.header-container-bottom {
+    padding-top: 0;
+    padding-bottom: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    align-items: center;
+    height: 4rem;
+    display: flex;
+    max-width: 768px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>객체를 동적으로 생성, 삽입, 삭제</title>
+    </head>
+    <body>
+        <p>DOM 트리에 동적으로 객체를 삽입할 수 있다.</p>
+        <p>
+            createElement("태그명"), appendChild("태그객체"),
+            removeChild("태그객체")
+        </p>
+        <p>위 3개의 메소드를 이용해서 새로운 객체를 생성, 삽입, 삭제한다.</p>
+        <a id="create" href="">DIV 생성</a>
+    </body>
+    <script>
+        const a = document.querySelector("#create");
+        const colors = new Array(
+            "yellow",
+            "red",
+            "blue",
+            "green",
+            "skyblue",
+            "orange",
+            "pink"
+        );
+
+        globalThis.number = 0;
+        a.onclick = (e) => {
+            // preventDefault: 기본적으로 들어간 이벤트 삭제(a니까 링크 이벤트 삭제)
+            e.preventDefault();
+            const i = Math.floor(Math.random() * colors.length);
+            const newDiv = document.createElement("div");
+            newDiv.innerText = `새로 생성된 DIV${++number} 태그입니다.`;
+            newDiv.style.backgroundColor = colors[i];
+
+            newDiv.onclick = (e) => {
+                // e.target: 이벤트 객체를 통해 이벤트를 발생시킨 객체를 가져올 수 있다.
+                // 사용예시... 장바구니 삭제....
+                e.target.parentElement.removeChild(e.target);
+            };
+            document.body.appendChild(newDiv);
+        };
+    </script>
+</html>

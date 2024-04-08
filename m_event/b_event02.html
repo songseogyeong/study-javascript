@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>포커스, 블러 이벤트</title>
+        <style>
+            input {
+                outline: none;
+                border: none;
+            }
+            a {
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="" name="info">
+            <a href="">안녕</a>
+            <input
+                type="text"
+                name="birth"
+                placeholder="생년월일"
+                autocomplete="off"
+            />
+            <input type="text" name="phone" placeholder="핸드폰 번호" />
+        </form>
+    </body>
+    <script>
+        // birth 값을 birth 변수에 할당
+        const birth = document.info.birth;
+        // phone 값을 phone 변수에 할당
+        const phone = document.info.phone;
+        // birth는 blur 이벤트 실행
+        birth.addEventListener("blur", () => {
+            // birthRegex 변수 선언
+            const birthRegex =
+                // 정규표현식: 조건문보다 효율이 떨어지며, 가독성도 안 좋다.
+                // ? : 앞에있는 거(.) 있어도 되고 없어도 되고
+                // {3, 4} 최소 3 최대 4 자리
+                /^(19[0-9][0-9]|20\d{2})\.?(0[1-9]|1[0-2])\.?(0[1-9]|[1-2][0-9]|3[0-1])$/;
+            // 만약, birth의 값이 있다면,
+            if (birthRegex.test(birth.value)) {
+                // birth의 border 스타일을 "1px solid green"로 주기
+                birth.style.border = "1px solid green";
+                return;
+            }
+            // 없다면 birth의 border 스타일을 "1px solid red"로 주기
+            birth.style.border = "1px solid red";
+            // birth의 focus 함수 실행
+            birth.focus();
+        });
+        // phone에 blur 이벤트 설정
+        phone.addEventListener("blur", () => {
+            // phoneRegex 변수 선언 후 할당
+            const phoneRegex =
+                // 정규 표현식 작성
+                /^01([0|1|6|7|8|9])\-?([0-9]{3,4})\-?([0-9]{4})$/;
+            // 만약, phone에 값이 있다면
+            if (phoneRegex.test(phone.value)) {
+                // phone의 border 스타일을 "1px solid green"로 주기
+                phone.style.border = "1px solid green";
+                return;
+            }
+            // 없다면 phone의 border 스타일을 "1px solid red"로 주기
+            phone.style.border = "1px solid red";
+            // phone에서 focus 함수 실행
+            phone.focus();
+        });
+    </script>
+</html>

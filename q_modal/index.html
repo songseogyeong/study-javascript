@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="modal.css" />
+    </head>
+    <body>
+        <div class="modal">
+            <div class="warn-modal">
+                <div id="content-wrap"></div>
+            </div>
+        </div>
+    </body>
+    <script src="modal.js"></script>
+    <script>
+        let modalMessage =
+            "<span>모든 정보를 정확히 입력하셔야</span><span>가입이 완료됩니다.</span>";
+        showWarnModal(modalMessage);
+    </script>
+</html>

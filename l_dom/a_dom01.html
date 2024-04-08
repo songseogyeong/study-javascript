@@ -1,0 +1,49 @@
+<!-- 
+    DOM(Document Object Model)
+
+    HTML 태그들을 하나씩 객체화한 것.
+    HTML 페이지의 내용과 모양을 제어하기 위해서 사용되는 객체이다.
+    HTML 태그 당 DOM 객체가 하나씩 생성된다.
+    HTML 태그의 포함관계에 따라서 부모, 자식, 형제자매 관계로 구성된다.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>클래스 이름 선택</title>
+    </head>
+    <body>
+        <h1>클래스 이름을 이용한 선택</h1>
+        <ul>
+            <li class="odd item">첫 번째 아이템이에요!</li>
+            <li class="even item">두 번째 아이템이에요!</li>
+            <li class="odd item">세 번째 아이템이에요!</li>
+            <li class="even item">네 번째 아이템이에요!</li>
+            <li class="odd item">다섯 번째 아이템이에요!</li>
+        </ul>
+    </body>
+    <script>
+        // HTML에는 forEach가 없기 때문에 forEach를 쓸 수 있게 만든 것
+        HTMLCollection.prototype.forEach = Array.prototype.forEach;
+
+        document.getElementsByClassName("odd").forEach((li) => {
+            li.style.color = "red";
+        });
+
+        // even은 글자색을 녹색으로 변경
+        document.getElementsByClassName("even").forEach((li) => {
+            li.style.color = " green";
+        });
+
+        // 위 코드를 한 줄로 작성
+        document.getElementsByClassName("item").forEach((li) => {
+            li.style.color = li.classList.contains("odd") ? "red" : "green";
+        });
+
+        document.getElementsByClassName("item").forEach((item) => {
+            // item.style.color = item.className.includes("odd") ? "red" : "green";
+            item.style.color = item.classList[0] === "odd" ? "red" : "green";
+        });
+    </script>
+</html>

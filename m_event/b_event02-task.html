@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>포커스, 블러 이벤트</title>
+        <style>
+            input {
+                outline: none;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="" name="form">
+            <input type="text" name="name" placeholder="이름" />
+            <input type="text" name="age" placeholder="나이" />
+        </form>
+    </body>
+    <script>
+        // focus된 input태그의 테두리는 녹색으로,
+        // blur된 input태그의 테두리는 빨간색으로 설정
+
+        // 실습
+        // const name = document.form.name;
+        // const age = document.form.age;
+        // name.addEventListener("blur", () => {
+        //     const nameRegex = /^([가-힣]+)$/;
+        //     if (nameRegex.test(name.value)) {
+        //         name.style.border = "1px solid green";
+        //         return;
+        //     }
+        //     name.style.border = "1px solid red";
+        // });
+
+        // age.addEventListener("blur", () => {
+        //     const ageRegex = /^([0-2][0-9])$/;
+        //     if (ageRegex.test(age.value)) {
+        //         age.style.border = "1px solid green";
+        //         return;
+        //     }
+        //     age.style.border = "1px solid red";
+        // });
+
+        // 정리
+        // querySelectorAll을 사용하여 타입을 text로 받는 input 태그를 조회하여 inputs 변수에 할당
+        const inputs = document.querySelectorAll("input[type=text]");
+        // 모든 값을 조회하였기 때문에, forEach문을 사용하여 값을 하나 하나 가져오기
+        inputs.forEach((input) => {
+            // input에 focus 이벤트 출력
+            input.addEventListener("focus", (e) => {
+                // 포커스 시 e.target의 border 스타일을 1px solid green으로 지정
+                e.target.style.border = "1px solid green";
+            });
+            // input에서 블러 이벤트 출력
+            input.addEventListener("blur", (e) => {
+                // 블러 시 e.target의 border 스타일을 1px solid green으로 지정
+                e.target.style.border = "1px solid red";
+            });
+        });
+    </script>
+</html>

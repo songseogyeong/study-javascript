@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>이벤트 위임</title>
+    </head>
+    <body>
+        <div id="container"></div>
+    </body>
+    <script>
+        const container = document.getElementById("container");
+        container.innerHTML = "<div class='child'>이벤트 위임1</div>";
+        container.innerHTML += "<div class='child'>이벤트 위임2</div>";
+
+        const children = document.querySelectorAll(".child");
+
+        container.addEventListener("click", (e) => {
+            alert("들어옴!");
+        });
+
+        // children.forEach((child) => {
+        //     child.addEventListener("click", (e) => {
+        //         alert("들어옴!");
+        //     });
+        // });
+    </script>
+</html>

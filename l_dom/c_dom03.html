@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>아이디 속성 선택</title>
+    </head>
+    <body>
+        <h1>아이디 속성 선택</h1>
+        <div id="first">
+            <strong> 첫 번째 DIV 입니다. </strong>
+        </div>
+        <div id="second">두 번째 DIV 입니다.</div>
+        <textarea id="third">세 번째 DIV 입니다.</textarea>
+        <button id="btn">완료</button>
+    </body>
+    <script>
+        const first = document.getElementById("first");
+        const second = document.getElementById("second");
+        console.log(first.innerHTML);
+        console.log(first.innerText);
+
+        second.innerHTML = `<strong>${second.innerText}</strong>`;
+        second.innerText = `<strong>${second.innerText}</strong>`;
+
+        const third = document.getElementById("third");
+
+        // value: 사용자가 새롭게 입력한 값을 포함해서 가져오기
+        // 입력한 건 value
+        console.log(third.value);
+
+        // innerHTML: 기존에 작성되었던 내용만 가져오기
+        // 원래 있던 건 inner
+        console.log(third.innerHTML);
+    </script>
+</html>

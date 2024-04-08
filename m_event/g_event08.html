@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>select 태그</title>
+        <style>
+            input::placeholder {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <select name="category">
+            <option value="전체" selected>전체</option>
+            <option value="인기">인기</option>
+            <option value="최신">최신</option>
+            <option value="베스트">베스트</option>
+            <option value="직접입력">직접입력</option>
+        </select>
+        <input type="text" />
+    </body>
+    <script>
+        const categories = document.querySelector("select[name=category]");
+        const options = document.querySelectorAll(
+            "select[name=category] option"
+        );
+        const input = document.querySelector("input[type=text]");
+
+        // 문서가 모두 준비되고 나서 함수 실행
+        window.onload = () => {
+            categories.dispatchEvent(new Event("change"));
+        };
+
+        categories.addEventListener("change", (e) => {
+            if (e.target.value === "직접입력") {
+                input.value = "";
+                input.placeholder = e.target.value;
+                input.readOnly = false;
+            } else {
+                input.value = e.target.value;
+                input.readOnly = true;
+            }
+        });
+    </script>
+</html>

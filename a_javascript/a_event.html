@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>이벤트 리스너</title>
+    </head>
+    <body>
+        <h2>마우스를 올려보세요😀</h2>
+        <hr />
+        <!-- 속성 -->
+        <!-- onmouseover: 마우스 올렸을 때 적용 -->
+        <!-- onmouseout : 마우스 뗐을 때 적용 -->
+        <!-- on 속성 작성 시 뒤에 자바스크립트 언어가 들어간다. -->
+
+        <!-- 모든 태그는 객체로 보기(img 태그 = 객체) -->
+        <!-- 파이썬 self = 자바 this = 주소 값을 가져온다. -->
+        <img
+            src="images/icon1.png"
+            width="200px"
+            onmouseover="this.src = 'images/icon2.png'"
+            onmouseout="this.src = 'images/icon1.png'"
+        />
+        <!-- 출력되는 이미지 파일은 icon1이며, 너비는 200px -->
+        <!-- scr에 마우스를 올리면(onmouseover) icon2 이미지로 변경  -->
+        <!-- scr에서 마우스를 떼면(onmouseout) icon1 이미지로 변경 -->
+    </body>
+</html>

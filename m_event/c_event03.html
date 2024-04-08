@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>즐겨찾기</title>
+        <style>
+            main {
+                width: 1208px;
+                height: fit-content;
+                margin: 30px auto;
+            }
+
+            section {
+                width: 300px;
+                height: fit-content;
+                border: 0.5px solid rgba(128, 128, 128, 0.115);
+                float: left;
+            }
+
+            div.item-thumbnail {
+                background-image: url("images/thumbnail.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-position: center;
+                width: 100%;
+                height: 460px;
+            }
+
+            div.icon-wrap {
+                width: 100%;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                justify-content: space-between;
+            }
+
+            div.icon-wrap div.icon-container {
+                display: flex;
+                align-items: center;
+                width: 60px;
+            }
+
+            div.icon {
+                width: 30px;
+                padding: 0 6px;
+            }
+
+            div.image {
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-position: center;
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+            }
+
+            div.favorite {
+                background-image: url("images/least-favorite.png");
+            }
+
+            div.like {
+                margin-top: 4px;
+                background-image: url("images/dislike.png");
+            }
+
+            div.send {
+                margin-top: 4px;
+                background-image: url("images/nosend.png");
+            }
+
+            /* 아래와 같이 선택자에 클래스를 붙여서 쓰면 and 연산이며, */
+            /* 반드시 2개의 클래스가 순서에 상관없이 모두 있어야 적용된다. */
+            /* .a.b: class="a b" */
+            div.favorite.on {
+                background-image: url("images/favorite.png");
+            }
+
+            div.like.on {
+                background-image: url("images/like.png");
+            }
+
+            div.send.on {
+                background-image: url("images/send.png");
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <section>
+                <!-- 썸네일 -->
+                <div class="item-thumbnail"></div>
+                <div class="icon-wrap">
+                    <div class="icon-container">
+                        <div class="icon">
+                            <!-- like 이미지 -->
+                            <div class="like image"></div>
+                        </div>
+                        <div class="icon">
+                            <!-- send 이미지 -->
+                            <div class="send image"></div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <!-- favorite 이미지 -->
+                        <div class="favorite image"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+    <script>
+        // querySelectorAll을 사용하여 섹션에 있는 모든 facorit 값을 조회하고 favorites 변수에 값을 할당한다.
+        const favorites = document.querySelectorAll(
+            "section .icon-wrap div.favorite"
+        );
+        // like를 조회하고 likes 변수에 할당
+        const likes = document.querySelectorAll("section .icon-wrap div.like");
+        // send를 조회하고 sends 변수에 할당
+        const sends = document.querySelectorAll("section .icon-wrap div.send");
+
+        // favorites는 all로 조회하여 값이 여러개 있으니 forEach를 사용하여 값을 하나씩 넘겨주기
+        favorites.forEach((favorite) => {
+            // favorite은 클릭 이벤트 설정
+            favorite.addEventListener("click", (e) => {
+                // e.target 클릭 시 on하기
+                e.target.classList.toggle("on");
+            });
+        });
+
+        // like도 all로 조회하여 값이 여러개 있으니 forEach를 사용하여 값을 하나씩 넘겨주기
+        likes.forEach((like) => {
+            // like 클릭 이벤트 설정
+            like.addEventListener("click", (e) => {
+                // e.target 클릭 시 on하기
+                e.target.classList.toggle("on");
+            });
+        });
+
+        // // send도 all로 조회하여 값이 여러개 있을 수 있으니 forEach를 사용하여 값을 하나씩 넘겨주기
+        // sends.forEach((send) => {
+        //     // sen 클릭 이벤트 설정
+        //     send.addEventListener("click", (e) => {
+        //         // e.target 클릭 시 on하기
+        //         e.target.classList.toggle("on");
+        //     });
+        // });
+
+        // sends의 값을 forEach로 하나씩 담고
+        sends.forEach((send) => {
+            // 마우스를 올리면 특정 값적용
+            send.addEventListener("mouseover", (e) => {
+                e.target.classList.toggle("on");
+            });
+            // send 마우스를 떼면 특정 값을 적용
+            send.addEventListener("mouseout", (e) => {
+                e.target.classList.toggle("on");
+            });
+        });
+    </script>
+</html>
